@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поддержка — Banner Link</title>
+<style>
+  :root{
+    --bg:#0F1013; --surface:#1C1C1F; --stroke:rgba(255,255,255,.08);
+    --text:#FFFFFF; --muted:#9A9AA2; --g1:#AEB5F7; --g2:#6B74E6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.65}
+  a{color:#AEB5F7}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--stroke);padding:20px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;color:#fff;text-decoration:none}
+  .brand img{width:34px;height:34px;border-radius:9px}
+  main{padding:56px 0 80px}
+  h1{font-size:34px;letter-spacing:-.02em;margin-bottom:12px}
+  .lead{color:var(--muted);font-size:16px;margin-bottom:32px}
+  h2{font-size:19px;margin:36px 0 12px}
+  p,li{color:#D6D6DC;font-size:15.5px}
+  .contact{background:linear-gradient(120deg,rgba(174,181,247,.14),rgba(107,116,230,.14));
+           border:1px solid rgba(174,181,247,.3);border-radius:18px;padding:24px;margin-bottom:8px}
+  .contact .mail{font-size:21px;font-weight:650;margin-top:6px;display:inline-block}
+  .faq{background:var(--surface);border:1px solid var(--stroke);border-radius:16px;padding:6px 20px;margin-top:14px}
+  details{border-bottom:1px solid var(--stroke);padding:16px 0}
+  details:last-child{border-bottom:0}
+  summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:#AEB5F7;font-weight:700}
+  details[open] summary::before{content:"– "}
+  details p{margin-top:10px}
+  footer{border-top:1px solid var(--stroke);padding:30px 0;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="brand" href="index.html"><img src="img/logo.png" alt=""> Banner Link</a>
+</div></header>
+
+<main><div class="wrap">
+  <h1>Поддержка</h1>
+  <p class="lead">Что-то не работает, есть вопрос или предложение — напишите. Отвечаем в течение суток.</p>
+
+  <div class="contact">
+    Электронная почта
+    <a class="mail" href="mailto:red23310867@gmail.com">red23310867@gmail.com</a>
+    <p style="margin-top:10px;color:var(--muted);font-size:14px">Жалобы на контент рассматриваем в течение 24 часов.</p>
+  </div>
+
+  <h2>Частые вопросы</h2>
+  <div class="faq">
+    <details>
+      <summary>Как создать своё событие?</summary>
+      <p>На вкладке событий нажмите «+», заполните название, категорию, дату и место. Адрес можно ввести вручную или включить переключатель «На моём местоположении». По желанию добавьте программу и фотографию.</p>
+    </details>
+    <details>
+      <summary>Как пожаловаться на событие или сообщение?</summary>
+      <p>Внизу страницы события есть кнопка «Пожаловаться на событие». В чате задержите палец на сообщении и выберите «Пожаловаться» или «Заблокировать автора». Мы разбираем жалобы в течение 24 часов.</p>
+    </details>
+    <details>
+      <summary>Как заблокировать пользователя?</summary>
+      <p>Задержите палец на его сообщении в канале события и выберите «Заблокировать автора». Его события, отзывы и сообщения перестанут вам показываться. Снять блокировку можно в «Настройки» → «Безопасность» → «Заблокированные».</p>
+    </details>
+    <details>
+      <summary>Как удалить аккаунт?</summary>
+      <p>«Профиль» → «Настройки» → «Удалить аккаунт». Профиль и весь связанный с ним контент удаляются безвозвратно. Если не получается — напишите нам, удалим вручную.</p>
+    </details>
+    <details>
+      <summary>Приложение не видит моё местоположение</summary>
+      <p>Откройте «Настройки» iPhone → «Banner Link» → «Геопозиция» и выберите «При использовании». Затем перезапустите приложение.</p>
+    </details>
+    <details>
+      <summary>Не приходят уведомления</summary>
+      <p>Проверьте «Настройки» iPhone → «Banner Link» → «Уведомления». Внутри приложения включить их можно в «Настройки» → «Уведомления».</p>
+    </details>
+    <details>
+      <summary>Как сменить язык?</summary>
+      <p>«Профиль» → «Настройки» → «Язык». Доступны русский и английский.</p>
+    </details>
+  </div>
+
+  <h2>Правила сообщества</h2>
+  <p>В Banner Link запрещены оскорбления и вражда, спам и реклама, мошенничество, а также любой незаконный контент. Нарушения удаляем, авторов блокируем. Организатор отвечает за достоверность своего события; платформа не продаёт билеты и не является стороной сделки.</p>
+
+  <h2>Приватность</h2>
+  <p>Как мы обращаемся с данными — в <a href="privacy.html">политике конфиденциальности</a>.</p>
+</div></main>
+
+<footer><div class="wrap">© 2026 Banner Link · Dubai · <a href="index.html">На главную</a></div></footer>
+
+</body>
+</html>

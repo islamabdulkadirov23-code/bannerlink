@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banner Link — карта событий Дубая</title>
+<style>
+  :root{
+    --bg:#0F1013; --surface:#1C1C1F; --stroke:rgba(255,255,255,.08);
+    --text:#FFFFFF; --muted:#9A9AA2;
+    --g1:#AEB5F7; --g2:#6B74E6; --blue:#185EF5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .grad{background:linear-gradient(120deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;
+       padding:14px 26px;border-radius:100px;background:linear-gradient(120deg,var(--g1),var(--g2));
+       color:#fff;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s;
+       box-shadow:0 8px 30px rgba(107,116,230,.35)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(107,116,230,.5)}
+  .btn.ghost{background:var(--surface);border:1px solid var(--stroke);box-shadow:none}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);
+         background:rgba(15,16,19,.7);border-bottom:1px solid var(--stroke)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px}
+  .brand img{width:38px;height:38px;border-radius:10px}
+  .nav .links{display:flex;gap:28px;color:var(--muted);font-size:15px}
+  .nav .links a:hover{color:#fff}
+
+  /* Hero */
+  .hero{position:relative;padding:80px 0 40px;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+    background:radial-gradient(circle,rgba(107,116,230,.35),transparent 60%);filter:blur(20px);z-index:0}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .hero h1{font-size:56px;line-height:1.05;letter-spacing:-1.5px;font-weight:800;margin-bottom:20px}
+  .hero p.lead{font-size:20px;color:var(--muted);margin-bottom:30px;max-width:520px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--g1);
+        background:rgba(107,116,230,.14);border:1px solid rgba(107,116,230,.3);
+        padding:7px 14px;border-radius:100px;margin-bottom:22px;font-weight:600}
+
+  /* Phone mockup */
+  .phone{position:relative;width:280px;margin:0 auto;
+    border:10px solid #23242A;border-radius:44px;overflow:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,.6);background:#000}
+  .phone img{display:block;width:100%}
+  .phone.tilt{transform:rotate(3deg)}
+
+  /* Sections */
+  section{padding:70px 0}
+  .stag{text-align:center;max-width:640px;margin:0 auto 50px}
+  .stag h2{font-size:38px;letter-spacing:-1px;font-weight:800;margin-bottom:14px}
+  .stag p{color:var(--muted);font-size:18px}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:var(--surface);border:1px solid var(--stroke);border-radius:22px;padding:28px}
+  .card .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+    background:linear-gradient(120deg,rgba(174,181,247,.2),rgba(107,116,230,.2));margin-bottom:16px}
+  .card .ico svg{width:28px;height:28px;color:#C8CCFB}
+  .pill svg{width:16px;height:16px;color:var(--g1);vertical-align:-2px}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+
+  .shots{display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
+  .shot{text-align:center}
+  .shot .cap{margin-top:16px;color:var(--muted);font-size:15px}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+  .step{background:var(--surface);border:1px solid var(--stroke);border-radius:22px;padding:28px}
+  .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;
+    width:44px;height:44px;border-radius:50%;font-weight:800;margin-bottom:16px;
+    background:linear-gradient(120deg,var(--g1),var(--g2))}
+  .step h3{font-size:18px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15px}
+
+  .cta-band{background:linear-gradient(120deg,var(--g1),var(--g2));border-radius:30px;
+    padding:56px 40px;text-align:center;margin:40px 0}
+  .cta-band h2{font-size:36px;font-weight:800;margin-bottom:12px}
+  .cta-band p{font-size:18px;opacity:.9;margin-bottom:26px}
+  .cta-band .btn{background:#0F1013;color:#fff;box-shadow:none}
+
+  footer{border-top:1px solid var(--stroke);padding:40px 0;color:var(--muted);font-size:14px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+
+  @media(max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;text-align:center}
+    .hero h1{font-size:40px}.hero .cta{justify-content:center}
+    .hero p.lead{margin-left:auto;margin-right:auto}
+    .features,.steps{grid-template-columns:1fr}
+    .nav .links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><img src="img/logo.png" alt="Banner Link"> Banner Link</div>
+    <nav class="links">
+      <a href="#features">Возможности</a>
+      <a href="#screens">Экраны</a>
+      <a href="#how">Как это работает</a>
+    </nav>
+    <a href="#get" class="btn" style="padding:10px 20px;font-size:15px">Попробовать</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg> События вокруг тебя в Дубае</span>
+      <h1>Все события города —<br><span class="grad">на одной карте</span></h1>
+      <p class="lead">Banner Link показывает, что происходит рядом прямо сейчас: вечеринки, нетворкинг, спорт, концерты. Подписывайся на организаторов, зови друзей и не пропускай важное.</p>
+      <div class="cta">
+        <a href="#get" class="btn">Начать</a>
+        <a href="#screens" class="btn ghost">Смотреть экраны</a>
+      </div>
+    </div>
+    <div class="phone tilt"><img src="img/map.png" alt="Карта событий"></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="stag">
+      <h2>Что умеет Banner Link</h2>
+      <p>Всё, чтобы находить события и людей рядом — в одном приложении.</p>
+    </div>
+    <div class="features">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div><h3>Карта событий</h3><p>События отмечены на карте с датой и временем. Видно, что происходит рядом и как далеко до места.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div><h3>Уведомления</h3><p>Подпишись на организаторов и получай пуш, как только они создают новое событие.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M17 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Зови друзей</h3><p>Приглашай друзей на события в пару тапов или делись ссылкой с кем угодно.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 18.8 6.2 21.9l1.1-6.5L2.6 9.8l6.5-.9L12 3z"/></svg></div><h3>Отзывы и рейтинги</h3><p>Оценивай события и читай отзывы других — выбирай лучшее.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div><h3>Под тебя</h3><p>Укажи профессию — во вкладке «Работа» покажем релевантные тебе события и нетворкинг.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div><h3>Твой профиль</h3><p>Аватар, статистика, друзья и «яркие воспоминания» — 3 события, которые запомнились.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENS -->
+<section id="screens" style="background:#141519">
+  <div class="wrap">
+    <div class="stag"><h2>Как это выглядит</h2><p>Тёмный, быстрый и удобный интерфейс.</p></div>
+    <div class="shots">
+      <div class="shot"><div class="phone"><img src="img/map.png" alt="Карта"></div><div class="cap">Карта событий рядом</div></div>
+      <div class="shot"><div class="phone"><img src="img/event.png" alt="Событие"></div><div class="cap">Страница события</div></div>
+      <div class="shot"><div class="phone"><img src="img/profile.png" alt="Профиль"></div><div class="cap">Профиль и друзья</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="stag"><h2>Как это работает</h2><p>Три шага — и ты в центре событий.</p></div>
+    <div class="steps">
+      <div class="step"><h3>Открой карту</h3><p>Приложение покажет тебя и события вокруг — с датой, местом и расстоянием.</p></div>
+      <div class="step"><h3>Подпишись и иди</h3><p>Отметь «Пойду», подпишись на организаторов и получай уведомления о новых событиях.</p></div>
+      <div class="step"><h3>Зови своих</h3><p>Приглашай друзей и делись впечатлениями — вместе интереснее.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="get"><div class="wrap">
+  <div class="cta-band">
+    <h2>Не пропусти ни одного события</h2>
+    <p>Banner Link — карта событий Дубая у тебя в кармане.</p>
+    <a href="#" class="btn">Скоро в App Store</a>
+  </div>
+</div></section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;align-items:center;flex-wrap:wrap;gap:16px">
+    <div class="brand"><img src="img/logo.png" alt="" style="width:30px;height:30px"> Banner Link</div>
+    <div style="display:flex;gap:22px"><a href="privacy.html">Конфиденциальность</a><a href="support.html">Поддержка</a></div>
+    <div>© 2026 Banner Link · Dubai</div>
+  </div>
+</footer>
+
+</body>
+</html>
